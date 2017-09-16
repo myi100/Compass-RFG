@@ -1,0 +1,53 @@
+$calm: #5897CB;
+$balanced: #D1DFEF;
+$energized: #51BCB1;
+$royal: #345167;
+$ionicons-font-path: "../lib/ionic/fonts" !default;
+@import "../www/lib/ionic/scss";
+.info {
+	position: absolute;
+	right: 10px;
+	width: 80px;
+	border: 3px solid #73AD21;
+	padding: 10px;
+}
+
+.addPadding {
+	padding-right: 15px;
+	padding-left: 15px;
+}
+
+.wrapping-list .item-content, .wrapping-list .item {
+	overflow: initial;
+	white-space: initial;
+}
+
+.bottom-form {
+	position: absolute;
+	bottom: 0px;
+	// display: block;
+	width: 100%;
+	background-color: white;
+	button {
+		margin: 0px !important;
+	}
+	
+}
+.top-container {
+	height: calc(50% - 96px);
+	overflow: scroll;
+}
+
+// This code is required for Angular Google Maps to funciton
+ui-gmap-google-map {
+	height: 100%;
+	width: 100%;
+	display: block;
+	.angular-google-map {
+		height: 100%;
+		.angular-google-map-container {
+			height: 100%;
+		}
+		
+	}
+}
