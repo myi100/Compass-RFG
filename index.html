@@ -63,6 +63,7 @@
     <script src="js/angular-simple-logger.js"></script>
     <script src="js/angular-google-maps.min.js"></script>
     <script src="js/googlemaps.init.js"></script>
+    <script src="js/ionic.native.min.js"></script>
 
     
     <script src="lib/ionicuirouter/ionicUIRouter.js"></script>
@@ -71,7 +72,7 @@
   </head>
   <body ng-app="app" animation="slide-left-right-ios7">
   <div>
-  <ion-side-menus enable-menu-with-back-views="false" data-componentid="side-menu21">
+  <ion-side-menus ng-controller="connectionStateCtrl" ng-show="offline != true" enable-menu-with-back-views="false" data-componentid="side-menu21">
     <ion-side-menu-content>
       <ion-nav-bar class="bar-stable">
         <ion-nav-back-button></ion-nav-back-button>
@@ -85,7 +86,7 @@
       <ion-header-bar class="bar-stable">
         <div class="title">Menu</div>
       </ion-header-bar>
-      <ion-content ng-controller="menuCtrl" padding="false" class="side-menu-left has-header ">
+      <ion-content ng-controller="menuCtrl" padding="false" class="side-menu-left has-header" ng-cloak>
         <ion-list id="menu-list13" data-componentid="list13">
           <ion-item class="item-icon-left assertive" id="menu-list-item58" data-componentid="list-item58">
             <i class="icon ion-ios-telephone"></i>Useful Phone Numbers</ion-item>
@@ -119,6 +120,9 @@
       </ion-content>
     </ion-side-menu>
   </ion-side-menus>
-</div>
+  <div ng-controller="connectionStateCtrl" ng-show="offline == true" ng-cloak>
+    Error: No Internet Connection detected! Sorry, But You need access to internet to use Compass. Erreur: Aucune connexion Internet n'a été détectée! Désolé, mais vous devez accéder à Internet pour utiliser Compass. خطأ: لم يتم اكتشاف اتصال إنترنت! عذرا، ولكن تحتاج إلى الوصول إلى الإنترنت لاستخدام البوصلة. Erè: Pa gen koneksyon entènèt detekte! Padon, men ou bezwen aksè a entènèt yo sèvi ak Compass.
+  </div>
+  </div>
   </body>
 </html>

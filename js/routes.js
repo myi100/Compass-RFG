@@ -243,6 +243,12 @@ angular.module('app.routes', ['ionicUIRouter'])
     controller: 'shareCompassCtrl'
   })
 
+  .state('geolocation', {
+    url: '/page24',
+    templateUrl: 'templates/geolocation.html',
+    controller: 'geolocationCtrl'
+  })
+
 $urlRouterProvider.otherwise('/language')
 
 

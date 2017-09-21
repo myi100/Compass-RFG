@@ -244,12 +244,41 @@ function ($scope, $stateParams, $state, Todos, Directory) {
     
     
 }])
+.controller('connectionStateCtrl',['$scope','$stateParams','$state', 
+function ($scope, $stateParams, $state) {
+    $scope.offline = false;
+    
+        $scope.$on('$cordovaNetwork:offline', function(event, networkState){
+            $scope.offline = true;
+            $scope.$digest();
+            console.log("offline...");
+          });
+         
+          window.addEventListener("offline", function(e) {
+            console.log("offline...");
+            $scope.offline = true;
+            $scope.$digest();
+          }, false);  
+
+          $scope.$on('$cordovaNetwork:online', function(event, networkState){
+            $scope.offline = false;
+            $scope.$digest();
+          });
+         
+          window.addEventListener("online", function(e) {
+            $scope.offline = false;
+            $scope.$digest();
+          }, false);  
+}
+
+])
       
 .controller('menuCtrl', ['$scope', '$stateParams', '$state', '$ionicAuth', '$ionicUser', '$ionicSideMenuDelegate', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
 function ($scope, $stateParams, $state, $ionicAuth, $ionicUser, $ionicSideMenuDelegate) {
-    
+
+
     if ($ionicAuth.isAuthenticated()) {
       // Updated on 1/9/2017 to fix issues with logging
       // out and back in, as well as history issues with side menu + tabs.
@@ -273,10 +302,53 @@ function ($scope, $stateParams, $state, $ionicAuth, $ionicUser, $ionicSideMenuDe
     
 }])
    
-.controller('selectLanguageCtrl', ['$scope', '$stateParams', '$ionicSlideBoxDelegate', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+.controller('selectLanguageCtrl', ['$scope', '$stateParams', '$ionicSlideBoxDelegate', '$cordovaNetwork', '$ionicPopup', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams, $ionicSlideBoxDelegate) {
+function ($scope, $stateParams, $ionicSlideBoxDelegate, $cordovaNetwork, $ionicPopup) {
+    
+    document.addEventListener("deviceready", function () {
+
+    var type = $cordovaNetwork.getNetwork()
+
+    var isOnline = $cordovaNetwork.isOnline()
+
+    var isOffline = $cordovaNetwork.isOffline()
+    
+
+    // listen for Online event
+    $rootScope.$on('$cordovaNetwork:online', function(event, networkState){
+      var onlineState = networkState;
+    })
+
+    // listen for Offline event
+    $rootScope.$on('$cordovaNetwork:offline', function(event, networkState){
+      var offlineState = networkState;
+      $ionicPopup.confirm({
+            title: "Internet disconnected!",
+            content: "Please check your connection before moving on"
+        })
+        .then(function(result){
+            if(!result){
+                ionic.Platform.exitApp();
+            }
+        });
+    })
+
+  }, false);
+    // console.log("checking network", $cordovaNetwork);
+
+    // if(!navigator.onLine){
+    //     $ionicPopup.confirm({
+    //         title: "Internet disconnected!",
+    //         content: "Please check your connection before moving on"
+    //     })
+    //     .then(function(result){
+    //         if(!result){
+    //             ionic.Platform.exitApp();
+    //         }
+    //     });
+    // }
     
     $scope.activeIndex = 0;
     
@@ -577,7 +649,7 @@ function ($scope, $stateParams, $ionicUser, $ionicAuth, $state, $ionicHistory, $
 function ($scope, $stateParams, $state, $ionicPopup, Users, Updates, Utilities) {
     
     $scope.data = {
-        share: '5147714392'
+        share: ''
     }
     
     $scope.error = ''
@@ -1053,5 +1125,25 @@ function ($scope, $stateParams, $state, $ionicAuth, $ionicUser) {
     $scope.gotoCompass = function(){
         $state.go('tabsController.compass')
     }
+}])
+   
+.controller('geolocationCtrl', ['$scope', '$stateParams', '$cordovaGeolocation', function ($scope, $stateParams, $cordovaGeolocation) {
+
+    $scope.MyLocation = {
+        Lat:Infinity,
+        Long:Infinity
+    };
+
+    $scope.GetLocation = function() {
+        var posOptions = {timeout: 10000, enableHighAccuracy: false};
+        $cordovaGeolocation
+            .getCurrentPosition(posOptions)
+            .then(function (position) {
+                $scope.MyLocation.Lat  = position.coords.latitude;
+                $scope.MyLocation.Long = position.coords.longitude;
+            }, function(err) {
+          // error
+        });
+    };
 }])
  
