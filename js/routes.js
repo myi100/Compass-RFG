@@ -137,6 +137,12 @@ angular.module('app.routes', ['ionicUIRouter'])
     controller: 'selectLanguageCtrl'
   })
 
+  .state('needInternetConnection', {
+    url: '/noConnetion',
+    templateUrl: 'templates/needInternetConnection.html',
+    controller: 'needInternetConnectionCtrl'
+  })
+
   .state('welcome', {
     url: '/welcome',
     templateUrl: 'templates/welcome.html',
@@ -249,7 +255,7 @@ angular.module('app.routes', ['ionicUIRouter'])
     controller: 'geolocationCtrl'
   })
 
-$urlRouterProvider.otherwise('/language')
+$urlRouterProvider.otherwise('/check')
 
 
 });

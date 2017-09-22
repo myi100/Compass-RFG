@@ -244,41 +244,12 @@ function ($scope, $stateParams, $state, Todos, Directory) {
     
     
 }])
-.controller('connectionStateCtrl',['$scope','$stateParams','$state', 
-function ($scope, $stateParams, $state) {
-    $scope.offline = false;
-    
-        $scope.$on('$cordovaNetwork:offline', function(event, networkState){
-            $scope.offline = true;
-            $scope.$digest();
-            console.log("offline...");
-          });
-         
-          window.addEventListener("offline", function(e) {
-            console.log("offline...");
-            $scope.offline = true;
-            $scope.$digest();
-          }, false);  
-
-          $scope.$on('$cordovaNetwork:online', function(event, networkState){
-            $scope.offline = false;
-            $scope.$digest();
-          });
-         
-          window.addEventListener("online", function(e) {
-            $scope.offline = false;
-            $scope.$digest();
-          }, false);  
-}
-
-])
       
 .controller('menuCtrl', ['$scope', '$stateParams', '$state', '$ionicAuth', '$ionicUser', '$ionicSideMenuDelegate', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
 function ($scope, $stateParams, $state, $ionicAuth, $ionicUser, $ionicSideMenuDelegate) {
-
-
+    
     if ($ionicAuth.isAuthenticated()) {
       // Updated on 1/9/2017 to fix issues with logging
       // out and back in, as well as history issues with side menu + tabs.
@@ -368,6 +339,14 @@ function ($scope, $stateParams, $ionicSlideBoxDelegate, $cordovaNetwork, $ionicP
     $scope.setSlider = function(slider){
         $scope.slider.slideTo(slider);
     };
+
+}])
+   
+.controller('needInternetConnectionCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+// You can include any angular dependencies as parameters for this function
+// TIP: Access Route Parameters for your page via $stateParams.parameterName
+function ($scope, $stateParams) {
+
 
 }])
    
@@ -704,7 +683,7 @@ function ($scope, $stateParams, $state, $ionicPopup, Updates, Utilities) {
                 template: 'Your response has been recorded.'
             });
             
-            $state.go('selectLanguage')
+            $state.go('needInternetConnection')
         } else{
             $scope.error = 'Please enter valid email.'
         }

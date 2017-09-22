@@ -1,5 +1,30 @@
 angular.module('firebaseConfig', ['firebase'])
 
+// .run(['$http'],function($http){
+ 
+//   var config = {
+//     apiKey: "AIzaSyBtkxEjFdXUUyPuuc8h_wScW9O-uXiZwE0",
+//     authDomain: "compass-release.firebaseapp.com",
+//     databaseURL: "https://compass-release.firebaseio.com",
+//     projectId: "compass-release",
+//     storageBucket: "compass-release.appspot.com",
+//     messagingSenderId: "804739614254"
+//   };   
+  
+//   $http({
+//   method: 'GET',
+//   url: config.databaseURL
+      
+//   }).then(function successCallback(response) {
+//       firebase.initializeApp(config);
+//     // this callback will be called asynchronously
+//     // when the response is available
+//   }, function errorCallback(response) {
+//     // called asynchronously if an error occurs
+//     // or server returns response with an error status.
+//   });
+// })
+
 .run(function(){
 
   // Initialize Firebase
@@ -12,6 +37,7 @@ angular.module('firebaseConfig', ['firebase'])
     messagingSenderId: "804739614254"
   };
   firebase.initializeApp(config);
+  console.log(firebase.database())
 })
 
 
