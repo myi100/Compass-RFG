@@ -1,0 +1,23 @@
+<ion-view title="Access Code" hide-nav-bar="true" id="page13" style="background-color:#F6F6F6;">
+  <ion-content padding="false" class="manual-ios-statusbar-padding">
+    <div class="spacer" style="height: 100px;"></div>
+    <h3 id="accessCode-heading18" style="color:#272727;text-align:center;" class="addPadding">What is your share or access code?</h3>
+    <h5 id="accessCode-heading24" style="color:#272727;font-style:italic;text-align:center;" class="addPadding">Ask anyone with an account OR</h5>
+    <a ui-sref="updates({&quot;msg&quot;:&quot;Request access code&quot;})" id="accessCode-button58" class="button button-positive button-small button-full button-clear">Request a code here!</a>
+    <div class="spacer" style="height: 15px;"></div>
+    <div id="accessCode-markdown12" style="text-align:center;" class="show-list-numbers-and-dots">
+      <p style="color:#F33232;">
+        <strong>{{error}}</strong>
+      </p>
+    </div>
+    <div class="spacer" style="height: 15px;"></div>
+    <form id="accessCode-form15" class="list">
+      <label class="item item-input" id="accessCode-input15">
+        <input type="tel" placeholder="Share or access #" ng-model="data.share">
+      </label>
+    </form>
+    <div class="spacer" style="height: 30px;"></div>
+    <button id="accessCode-button22" ng-click="checkAccessCode()" class="button button-calm button-large button-full">Next</button>
+    <a ui-sref="welcome()" id="accessCode-button32" class="button button-positive button-small button-full button-clear">Back</a>
+  </ion-content>
+</ion-view>

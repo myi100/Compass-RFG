@@ -1,0 +1,85 @@
+<ion-view title="I Just Arrived" id="page9">
+  <ion-nav-buttons side="left" scroll="false" class="has-header">
+    <button class="button button-icon icon ion-android-hand"></button>
+  </ion-nav-buttons>
+  <ion-nav-buttons side="right" scroll="false" class="has-header">
+    <button class="button button-icon icon ion-ios-close-empty" ng-click="gotoCompass()"></button>
+  </ion-nav-buttons>
+  <ion-content padding="false" class="manual-remove-top-padding has-header" scroll="false">
+    <ion-slides disable-side-menu-drag="" options="sliderOptions" slider="slider4" delegate-handle="slider4" id="iJustArrived-slider4" style="width:100%;height:100%;">
+      <ion-slide-page id="iJustArrived-slide212" style="background-color:#F6F6F6;">
+        <div class="spacer" style="height: 100px;"></div>
+        <h3 id="iJustArrived-heading17" style="color:#272727;text-align:center;">Welcome to</h3>
+        <h2 id="iJustArrived-heading19" style="color:#272727;text-align:center;">{{user.name}}</h2>
+        <div class="spacer" style="height: 30px;"></div>
+        <div id="iJustArrived-markdown13" class="show-list-numbers-and-dots addPadding">
+          <blockquote>
+            <p style="color:#272727;font-size:16px;">Here are some steps that we've prepared to help you get settled and
+              <strong>start your process faster.</strong>
+            </p>
+            <p style="color:#272727;font-size:16px;">But first we wanted to ask you some general questions so we can understand your situation.</p>
+          </blockquote>
+        </div>
+        <div class="spacer" style="height: 30px;"></div>
+        <button id="iJustArrived-button24" ng-click="setSlider(1)" class="button button-positive button-small button-full button-clear">Next &gt;</button>
+      </ion-slide-page>
+      <ion-slide-page id="iJustArrived-slide214" style="background-color:#F37F81;">
+        <div class="spacer" style="height: 100px;"></div>
+        <h3 id="iJustArrived-heading22" style="color:#FFFFFF;" class="addPadding">Do you have your brown Refugee ID?</h3>
+        <div class="spacer" style="height: 30px;"></div>
+        <form id="iJustArrived-form9" class="list">
+          <ion-radio id="iJustArrived-radio1" name="refId" ng-model="data.refId" ng-value="'yes'">Yes</ion-radio>
+          <ion-radio id="iJustArrived-radio3" name="refId" ng-model="data.refId" ng-value="'no'">No</ion-radio>
+          <ion-radio id="iJustArrived-radio4" name="refId" ng-model="data.refId" ng-value="'idk'">I don't understand</ion-radio>
+          <div class="spacer" style="height: 30px;"></div>
+        </form>
+        <button id="iJustArrived-button25" ng-click="setSlider(2)" style="color:#FFFFFF;" class="button button-light button-small button-full button-clear">Next &gt;</button>
+        <button id="iJustArrived-button29" ng-click="setSlider(0)" style="color:#FFFFFF;" class="button button-light button-small button-full button-clear">&lt; Back</button>
+      </ion-slide-page>
+      <ion-slide-page id="iJustArrived-slide21" style="background-color:#98CDCD;">
+        <div class="spacer" style="height: 100px;"></div>
+        <h3 id="iJustArrived-heading15" style="color:#FFFFFF;" class="addPadding">When is your next appointment with immigration?</h3>
+        <div class="spacer" style="height: 30px;"></div>
+        <form id="iJustArrived-form10" class="list">
+          <label class="item item-input" id="iJustArrived-input8">
+            <span class="input-label">Date:</span>
+            <input type="date" placeholder="" ng-model="data.apptDate">
+          </label>
+          <label class="item item-input" id="iJustArrived-input9">
+            <span class="input-label">Time:</span>
+            <input type="time" placeholder="" ng-model="data.apptTime">
+          </label>
+          <ion-radio id="iJustArrived-radio7" ng-model="data.apptIdk" ng-value="&quot;idk&quot;">I don't understand</ion-radio>
+        </form>
+        <div class="spacer" style="height: 30px;"></div>
+        <button id="iJustArrived-button26" ng-click="setSlider(3)" style="color:#FFFFFF;" class="button button-light button-small button-full button-clear">Next &gt;</button>
+        <button id="iJustArrived-button30" ng-click="setSlider(1)" style="color:#FFFFFF;" class="button button-light button-small button-full button-clear">&lt; Back</button>
+      </ion-slide-page>
+      <ion-slide-page id="iJustArrived-slide22" style="background-color:#FDCC99;">
+        <div class="spacer" style="height: 100px;"></div>
+        <h3 id="iJustArrived-heading20" style="color:#FFFFFF;" class="addPadding">Have you met with a social worker at PRAIDA?</h3>
+        <div class="spacer" style="height: 30px;"></div>
+        <form id="iJustArrived-form12" class="list">
+          <ion-radio id="iJustArrived-radio8" name="praida" ng-model="data.praida" ng-value="&quot;yes&quot;">Yes</ion-radio>
+          <ion-radio id="iJustArrived-radio10" name="praida" ng-model="data.praida" ng-value="&quot;no&quot;">No</ion-radio>
+          <ion-radio id="iJustArrived-radio9" name="praida" ng-model="data.praida" ng-value="&quot;idk&quot;">I don't understand</ion-radio>
+        </form>
+        <div class="spacer" style="height: 30px;"></div>
+        <button id="iJustArrived-button27" ng-click="setSlider(4)" style="color:#FFFFFF;" class="button button-light button-small button-full button-clear">Next &gt;</button>
+        <button id="iJustArrived-button31" ng-click="setSlider(2)" style="color:#FFFFFF;" class="button button-light button-small button-full button-clear">&lt; Back</button>
+      </ion-slide-page>
+      <ion-slide-page id="iJustArrived-slide23" ng-click="setSlider(3)" style="background-color:#9595CA;">
+        <div class="spacer" style="height: 100px;"></div>
+        <h3 id="iJustArrived-heading21" style="color:#FFFFFF;" class="addPadding">Do you have a place to stay tonight?</h3>
+        <div class="spacer" style="height: 30px;"></div>
+        <form id="iJustArrived-form13" class="list">
+          <ion-radio id="iJustArrived-radio11" name="shelter" ng-model="data.shelter" ng-value="&quot;yes&quot;">Yes</ion-radio>
+          <ion-radio id="iJustArrived-radio12" name="shelter" ng-model="data.shelter" ng-value="&quot;no&quot;">No</ion-radio>
+        </form>
+        <div class="spacer" style="height: 30px;"></div>
+        <button id="iJustArrived-button28" ng-click="createGuide()" style="color:#FFFFFF;" class="button button-light button-large button-full button-outline icon-right ion-android-arrow-forward addPadding">What to do</button>
+        <button id="iJustArrived-button66" style="color:#FFFFFF;" class="button button-positive button-small button-full button-clear">&lt; Back</button>
+      </ion-slide-page>
+    </ion-slides>
+  </ion-content>
+</ion-view>
