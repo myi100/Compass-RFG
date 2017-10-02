@@ -1,0 +1,33 @@
+<ion-header>
+        <ion-navbar>
+          <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+          </button>
+          <ion-title>Compass</ion-title>
+        </ion-navbar>
+</ion-header>
+<ion-content>     
+    <ion-list>
+        <ion-item (click)="goToDynamicPage('justarrived')">
+          I Just Arrived
+        </ion-item>
+        <ion-item>
+          Schedule Medical Exam
+        </ion-item>
+        <ion-item>
+          Find Housing
+        </ion-item>
+      </ion-list>
+       <button ion-button full>Share Compass</button>
+      <ion-list>
+        <ion-item>
+          Find / Buy Essentials
+        </ion-item>
+        <ion-item>
+          Study French or English
+        </ion-item>
+        <ion-item>
+          Check Application Status
+        </ion-item>
+      </ion-list>
+</ion-content>

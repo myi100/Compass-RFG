@@ -1,0 +1,45 @@
+<ion-menu [content]="content">
+    <ion-header>
+        <ion-toolbar>
+        <ion-title>Menu</ion-title>
+        </ion-toolbar>
+    </ion-header>
+    
+    <ion-content>
+        <ion-list>
+        <ion-item class="item-icon-left assertive" id="menu-list-item58" data-componentid="list-item58">
+            <ion-icon name="call" item-start></ion-icon>Useful Phone Numbers
+        </ion-item>
+        <div class="spacer" data-componentid="spacer100" style="width: 268px; height: 30px;"></div>
+        <ion-list id="menu-list12" data-componentid="list12">
+            <ion-item id="menu-list-item59" data-componentid="list-item59">911
+            <span class="item-note">Emergency (police, fire)</span>
+            </ion-item>
+            <ion-item id="menu-list-item60" data-componentid="list-item60">311
+            <span class="item-note">City of Montréal</span>
+            </ion-item>
+            <ion-item id="menu-list-item61" data-componentid="list-item61">514-864-9191
+            <span class="item-note">Immigration</span>
+            </ion-item>
+            <ion-item id="menu-list-item62" data-componentid="list-item62">811
+            <span class="item-note">Health Information</span>
+            </ion-item>
+            <ion-item id="menu-list-item63" data-componentid="list-item63">1-800-463-5069
+            <span class="item-note">Poison</span>
+            </ion-item>
+        </ion-list>
+        <div class="spacer" data-componentid="spacer101" style="width: 268px; height: 30px;"></div>
+        <button id="menu-button16" (click)="logout()" menuClose ion-button full>Logout</button>
+        <ion-list id="menu-list15" data-componentid="list15">
+            <ion-item class="item-icon-left" id="menu-list-item65" data-componentid="list-item65">
+            <i class="icon ion-help-buoy"></i>Contact:
+            <span class="item-note">support@edel.io</span>
+            </ion-item>
+        </ion-list>
+        </ion-list>
+    </ion-content>
+</ion-menu>
+
+<ion-content #content>
+  <compass-main></compass-main>
+</ion-content>

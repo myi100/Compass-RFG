@@ -1,0 +1,42 @@
+<ion-slides style="width:100%;height:100%;">
+    <ion-slide style="background-color:#F6F6F6;">
+        <div class="spacer" style="height: 100px;"></div>
+        <h3 id="login-heading13" style="color:#272727;text-align:center;" class="addPadding">What is your phone number?</h3>
+        <div class="spacer" style="height: 15px;"></div>
+        <div id="login-markdown19" ng-repeat="err in error" style="text-align:center;" class="show-list-numbers-and-dots">
+        <p style="color:#F33232;">
+            <strong></strong>
+        </p>
+        </div>
+        <div class="spacer" style="height: 15px;"></div>
+        <form id="login-form22" class="list">
+        <label class="item item-input" id="login-input12">
+            <input type="tel" placeholder="Phone #" ng-model="data.phone">
+        </label>
+        </form>
+        <div class="spacer" style="height: 30px;"></div>
+        <button (click)="goToNextPage()" style="font-weight:500;font-size:14px;" ion-button full>Next: Passcode</button>
+        <button id="login-button63" (click)="backToWelcome()" ion-button clear>&lt; Back</button>
+        <div class="spacer" style="height: 30px;"></div>
+    </ion-slide>
+    <ion-slide style="background-color:#F6F6F6;">
+        <div class="spacer" style="height: 100px;"></div>
+        <h3 id="login-heading37" style="color:#272727;text-align:center;" class="addPadding">Enter Passcode</h3>
+        <div id="login-markdown18" ng-repeat="err in error" style="text-align:center;" class="show-list-numbers-and-dots">
+        <p style="color:#F33232;">
+            <strong></strong>
+        </p>
+        </div>
+        <div class="spacer" style="height: 30px;"></div>
+        <form id="login-form23" class="list">
+        <label class="item item-input" id="login-input18">
+            <input type="password" placeholder="Passcode" ng-model="data.passcode">
+        </label>
+        </form>
+        <div class="spacer" style="height: 28px;"></div>
+        <button id="login-button62" (click)="login()"  style="font-weight:600;color:#345167;" ion-button full>Login</button>
+        <div class="spacer" style="height: 30px;"></div>
+        <button id="login-button63" (click)="goToPrevPage()" ion-button clear>&lt; Back</button>
+    </ion-slide>
+ </ion-slides>
+
