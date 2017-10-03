@@ -4,7 +4,7 @@ import { Page } from '../../models/page';
 import { CompassSlider } from './compass-slider.component';
 import { LoginService } from '../../services/login.service';
 import { CompassWelcome } from './compass-welcome.component';
-import { CompassMenu } from './compass-menu.component';
+import { CompassTabs } from './compass-tabs.component';
 
 @Component({
   selector: 'compass-main',
@@ -31,7 +31,7 @@ export class CompassMain implements OnInit {
               this.navObj.setRoot(CompassWelcome);
             }
             else {
-              this.navObj.setRoot(CompassMenu);
+              this.navObj.setRoot(CompassTabs);
             }
         }
 

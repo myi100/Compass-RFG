@@ -9,6 +9,8 @@ import { CompassWelcome } from "./components/main/compass-welcome.component";
 import { CompassSlider } from './components/main/compass-slider.component';
 import { CompassMenu } from './components/main/compass-menu.component';
 import { CompassLogin} from './components/login/compass-login.component';
+import { CompassTabs} from './components/main/compass-tabs.component';
+import { CompassTodos} from './components/main/compass-todos.component';
 
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -17,7 +19,6 @@ import { Safe } from './pipes/safeHtml.pipe';
 
 import {ResourceServices} from './services/resource.service';
 import {LoginService} from './services/login.service';
-import {ParentVisibleService} from './services/parent-visible.service';
 
 import { Dynamic } from './components/common/dynamic.component';
 import { CompassDynamicViewer } from './components/common/compass-dynamic-viewer.component';
@@ -32,7 +33,9 @@ import { CompassDynamicViewer } from './components/common/compass-dynamic-viewer
     CompassSlider,
     CompassMenu,
     CompassLogin,
-    CompassDynamicViewer
+    CompassDynamicViewer,
+    CompassTabs,
+    CompassTodos
   ],
   imports: [
     BrowserModule,
@@ -48,14 +51,15 @@ import { CompassDynamicViewer } from './components/common/compass-dynamic-viewer
     CompassSlider,
     CompassMenu,
     CompassLogin,
-    CompassDynamicViewer
+    CompassDynamicViewer,
+    CompassTabs,
+    CompassTodos
   ],
   providers: [
     StatusBar,
     SplashScreen,
     ResourceServices,
     LoginService,
-    ParentVisibleService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

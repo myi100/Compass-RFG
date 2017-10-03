@@ -2,7 +2,6 @@ import { Component, OnInit, Input, ViewChild, Compiler, NgModule, ViewContainerR
 import { IonicModule, Nav, Slides } from 'ionic-angular';
 import { Page } from '../../models/page';
 import { CompassSlider } from './compass-slider.component';
-import { ParentVisibleService } from '../../services/parent-visible.service';
 import { CompassLogin } from '../login/compass-login.component';
 
 @Component({
@@ -20,7 +19,7 @@ export class CompassWelcome {
     this.slides.slideNext();
   }
 
-  public goToNextPrev(page) {
+  public goToPrevPage(page) {
     this.slides.slidePrev();
   }
 

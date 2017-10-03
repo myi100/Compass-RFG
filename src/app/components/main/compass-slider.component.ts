@@ -1,7 +1,6 @@
 import { Component, OnInit, Input, ViewChild, NgModule, Output, EventEmitter } from '@angular/core';
 import { Slides, Nav } from 'ionic-angular';
 import { ResourceServices } from '../../services/resource.service';
-import { ParentVisibleService } from '../../services/parent-visible.service';
 import { Page } from '../../models/page';
 
 import { CompassLogin } from '../login/compass-login.component';
@@ -23,7 +22,7 @@ export class CompassSlider implements OnInit {
   @Input() filesGroup: string;
   @ViewChild(Slides) slides: Slides;
   
-  constructor(appService: ResourceServices, private parentVisibileService: ParentVisibleService) {
+  constructor(appService: ResourceServices) {
     this.navControlSet = false;
     this._appService = appService;
     this.dynamicProps = { 
@@ -77,8 +76,6 @@ export class CompassSlider implements OnInit {
   public goToPage(page){
 
     this.navControlSet = true;
-
-    this.parentVisibileService.setVisibility(false);
     
     this.navControl.setRoot(this.components.find(function(elem){
 
@@ -90,10 +87,6 @@ export class CompassSlider implements OnInit {
     }).component, {
       "slider": this
     });
-  }
-
-  public showParent(show: boolean) {
-    this.parentVisibileService.setVisibility(show);
   }
 
   ngOnInit(): void {
