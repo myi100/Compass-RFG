@@ -6,7 +6,6 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { CompassMain } from './components/main/compass-main.component';
 import { CompassWelcome } from "./components/main/compass-welcome.component";
-import { CompassSlider } from './components/main/compass-slider.component';
 import { CompassMenu } from './components/main/compass-menu.component';
 import { CompassLogin} from './components/login/compass-login.component';
 import { CompassTabs} from './components/main/compass-tabs.component';
@@ -30,7 +29,6 @@ import { CompassDynamicViewer } from './components/common/compass-dynamic-viewer
     Dynamic,
     CompassMain,
     CompassWelcome,
-    CompassSlider,
     CompassMenu,
     CompassLogin,
     CompassDynamicViewer,
@@ -48,7 +46,6 @@ import { CompassDynamicViewer } from './components/common/compass-dynamic-viewer
     Dynamic,
     CompassMain,
     CompassWelcome,
-    CompassSlider,
     CompassMenu,
     CompassLogin,
     CompassDynamicViewer,
