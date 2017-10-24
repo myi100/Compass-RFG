@@ -140,6 +140,22 @@ angular.module('firebaseConfig', ['firebase'])
     return users;
 }])
 
+.service("Questions", ["$firebaseArray", function($firebaseArray){
+    var ref = firebase.database().ref().child("questions");
+    var items = $firebaseArray(ref);
+    var questions = {
+        addItem: function(userId, email, question){
+            items.$add({
+                userId: userId,
+                email: email,
+                question: question,
+                tmsp: Date.now()
+            })
+        }
+    }
+    return questions;
+}])
+
 /*
 
 .service("TodoExample", ["$firebaseArray", function($firebaseArray){

@@ -4,6 +4,9 @@ $energized: #51BCB1;
 $royal: #345167;
 $ionicons-font-path: "../lib/ionic/fonts" !default;
 @import "../www/lib/ionic/scss";
+.buttonBorder {
+	border: 2px solid #4CAF50;
+	/* Green */}
 .info {
 	position: absolute;
 	right: 10px;

@@ -1,0 +1,16 @@
+<ion-view title="Share Compass" id="page20" style="background-color:#F6F6F6;">
+  <ion-nav-buttons side="left" class="has-header">
+    <button class="button button-icon icon ion-android-share"></button>
+  </ion-nav-buttons>
+  <ion-nav-buttons side="right" class="has-header">
+    <button class="button button-icon icon ion-ios-close-empty" ng-click="gotoCompass()"></button>
+  </ion-nav-buttons>
+  <ion-content padding="false" class="manual-remove-top-padding has-header">
+    <div class="spacer" style="height: 100px;"></div>
+    <h3 id="shareCompass-heading39" style="color:#272727;font-weight:400;text-align:center;">Your Share Code:</h3>
+    <h3 id="shareCompass-heading40" style="color:#272727;font-weight:600;text-align:center;">{{userId}}</h3>
+    <div class="spacer" style="height: 30px;"></div>
+    <button id="shareCompass-button45" ng-click="shareSms()" class="button button-calm button-large button-full icon-left ion-android-textsms">SMS</button>
+    <button id="shareCompass-button48" ng-click="shareEmail()" class="button button-energized button-large button-full icon-left ion-email">Email</button>
+  </ion-content>
+</ion-view>

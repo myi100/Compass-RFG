@@ -1,4 +1,4 @@
-angular.module('app.routes', ['ionicUIRouter'])
+angular.module('app.routes', [])
 
 .config(function($stateProvider, $urlRouterProvider) {
 
@@ -19,42 +19,21 @@ angular.module('app.routes', ['ionicUIRouter'])
     }
   })
 
-  .state('tabsController.directory', {
+  .state('directory', {
     url: '/directory',
 	params: {
 		category: ""		
 },
-    views: {
-      'tab1': {
-        templateUrl: 'templates/directory.html',
-        controller: 'directoryCtrl'
-      }
-    }
+    templateUrl: 'templates/directory.html',
+    controller: 'directoryCtrl'
   })
 
-  /* 
-    The IonicUIRouter.js UI-Router Modification is being used for this route.
-    To navigate to this route, do NOT use a URL. Instead use one of the following:
-      1) Using the ui-sref HTML attribute:
-        ui-sref='tabsController.information'
-      2) Using $state.go programatically:
-        $state.go('tabsController.information');
-    This allows your app to figure out which Tab to open this page in on the fly.
-    If you're setting a Tabs default page or modifying the .otherwise for your app and
-    must use a URL, use one of the following:
-      /page1/tab1/information
-      /page1/tab3/information
-  */
   .state('tabsController.information', {
     url: '/information',
 	params: {
 		item: ""		
 },
     views: {
-      'tab1': {
-        templateUrl: 'templates/information.html',
-        controller: 'informationCtrl'
-      },
       'tab3': {
         templateUrl: 'templates/information.html',
         controller: 'informationCtrl'
@@ -62,29 +41,12 @@ angular.module('app.routes', ['ionicUIRouter'])
     }
   })
 
-  /* 
-    The IonicUIRouter.js UI-Router Modification is being used for this route.
-    To navigate to this route, do NOT use a URL. Instead use one of the following:
-      1) Using the ui-sref HTML attribute:
-        ui-sref='tabsController.map'
-      2) Using $state.go programatically:
-        $state.go('tabsController.map');
-    This allows your app to figure out which Tab to open this page in on the fly.
-    If you're setting a Tabs default page or modifying the .otherwise for your app and
-    must use a URL, use one of the following:
-      /page1/tab1/map
-      /page1/tab3/map
-  */
   .state('tabsController.map', {
     url: '/map',
 	params: {
 		item: ""		
 },
     views: {
-      'tab1': {
-        templateUrl: 'templates/map.html',
-        controller: 'mapCtrl'
-      },
       'tab3': {
         templateUrl: 'templates/map.html',
         controller: 'mapCtrl'
@@ -217,24 +179,16 @@ angular.module('app.routes', ['ionicUIRouter'])
     }
   })
 
-  .state('tabsController.findBuyEssentials', {
+  .state('findBuyEssentials', {
     url: '/findEssentials',
-    views: {
-      'tab1': {
-        templateUrl: 'templates/findBuyEssentials.html',
-        controller: 'findBuyEssentialsCtrl'
-      }
-    }
+    templateUrl: 'templates/findBuyEssentials.html',
+    controller: 'findBuyEssentialsCtrl'
   })
 
-  .state('tabsController.studyFrenchOrEnglish', {
+  .state('studyFrenchOrEnglish', {
     url: '/study',
-    views: {
-      'tab1': {
-        templateUrl: 'templates/studyFrenchOrEnglish.html',
-        controller: 'studyFrenchOrEnglishCtrl'
-      }
-    }
+    templateUrl: 'templates/studyFrenchOrEnglish.html',
+    controller: 'studyFrenchOrEnglishCtrl'
   })
 
   .state('checkApplication', {
@@ -253,6 +207,22 @@ angular.module('app.routes', ['ionicUIRouter'])
     url: '/page24',
     templateUrl: 'templates/geolocation.html',
     controller: 'geolocationCtrl'
+  })
+
+  .state('tabsController.haveAQuestion', {
+    url: '/page26',
+    views: {
+      'tab1': {
+        templateUrl: 'templates/haveAQuestion.html',
+        controller: 'haveAQuestionCtrl'
+      }
+    }
+  })
+
+  .state('sendUsAQuestion', {
+    url: '/page28',
+    templateUrl: 'templates/sendUsAQuestion.html',
+    controller: 'sendUsAQuestionCtrl'
   })
 
 $urlRouterProvider.otherwise('/language')

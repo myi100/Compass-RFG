@@ -393,7 +393,7 @@ function ($scope, $stateParams, $state, $ionicUser, $ionicAuth, $rootScope, User
     $scope.data = {
         city: 'Montréal, QC',
         phone: '',
-        share: $stateParams.share,
+        share: '5147714392',
         passcode: ''
     }
     
@@ -506,8 +506,8 @@ function ($scope, $stateParams, $state, $ionicUser, $ionicAuth, $rootScope, User
         });
     }
     
-    $scope.gotoAccessCode = function(){
-        $state.go('accessCode');
+    $scope.gotoWelcome = function(){
+        $state.go('welcome');
     }
     
 
@@ -1015,7 +1015,7 @@ function ($scope, $stateParams, $state) {
             category: 'Essentials'
         }
         
-        $state.go('tabsController.directory', params);
+        $state.go('directory', params);
     }
     
 
@@ -1034,7 +1034,7 @@ function ($scope, $stateParams, $state) {
             category: 'Education'
         }
         
-        $state.go('tabsController.directory', params);
+        $state.go('directory', params);
     }
 
     $scope.gotoCompass = function(){
@@ -1105,35 +1105,8 @@ function ($scope, $stateParams, $state, $ionicAuth, $ionicUser) {
         $state.go('tabsController.compass')
     }
 }])
-
-.controller('connectionStateCtrl',['$scope','$stateParams','$state', 
-function ($scope, $stateParams, $state) {
-        $scope.offline = false;
-    
-        $scope.$on('$cordovaNetwork:offline', function(event, networkState){
-            $scope.offline = true;
-            $scope.$digest();
-          });
-         
-          window.addEventListener("offline", function(e) {
-            $scope.offline = true;
-            $scope.$digest();
-          }, false);  
-
-          $scope.$on('$cordovaNetwork:online', function(event, networkState){
-            $scope.offline = false;
-            $scope.$digest();
-          });
-         
-          window.addEventListener("online", function(e) {
-            $scope.offline = false;
-            $scope.$digest();
-          }, false);  
-}
-
-])
    
-.controller('geolocationCtrl', ['$scope', '$stateParams', '$cordovaGeolocation', function ($scope, $stateParams, $cordovaGeolocation) {
+.controller('geolocationCtrl', ['$scope', '$stateParams', '$cordovaGeolocation', 'Directory', function ($scope, $stateParams, $cordovaGeolocation, Directory) {
 
     $scope.MyLocation = {
         Lat:Infinity,
@@ -1151,5 +1124,80 @@ function ($scope, $stateParams, $state) {
           // error
         });
     };
+    
+    
+    // $scope.directory = Directory.items;
+
+    // $scope.distanceTo = function(restaurant) {
+    //     var distance = GreatCircle.distance( restaurant.long,restaurant.lat, position.longitude, position.latitude)
+    //     restaurant.distance = distance;
+    //     distance = distance.toFixed(1);
+    //     return distance;
+    // }
+}])
+   
+.controller('haveAQuestionCtrl', ['$scope', '$stateParams', '$state', '$ionicAuth', '$ionicUser', '$ionicPopup', 'Questions', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+// You can include any angular dependencies as parameters for this function
+// TIP: Access Route Parameters for your page via $stateParams.parameterName
+function ($scope, $stateParams, $state, $ionicAuth, $ionicUser, $ionicPopup, Questions) {
+
+    $scope.userId = ''
+    if ($ionicAuth.isAuthenticated()) {
+      // Updated on 1/9/2017 to fix issues with logging
+      // out and back in, as well as history issues with side menu + tabs.
+      $ionicUser.load().then(function(user) {
+        $scope.userId = $ionicUser.details.email.replace('@edel.io', '');
+      });
+    }
+    
+    $scope.data = {
+        userId: $scope.userId,
+        Qemail: '',
+        Question: '',
+    }
+    
+    $scope.sendQuestion = function(){
+        Questions.addItem($scope.data.userId, $scope.data.Qemail, $scope.data.Question);
+            
+        $ionicPopup.alert({
+            title: 'Thank you!',
+            template: 'Your response has been recorded.'
+        });
+        
+        $scope.data.Qemail = ''
+        $scope.data.Question = ''
+            
+        $state.go('tabsController.compass')
+    } 
+
+}])
+   
+.controller('sendUsAQuestionCtrl', ['$scope', '$stateParams', '$state', '$ionicAuth', '$ionicUser', '$ionicPopup', 'Questions', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+// You can include any angular dependencies as parameters for this function
+// TIP: Access Route Parameters for your page via $stateParams.parameterName
+function ($scope, $stateParams, $state, $ionicAuth, $ionicUser, $ionicPopup, Questions) {
+
+    $scope.userId = ''
+    
+    $scope.data = {
+        userId: $scope.userId,
+        Qemail: '',
+        Question: '',
+    }
+    
+    $scope.sendQuestion = function(){
+        Questions.addItem($scope.data.userId, $scope.data.Qemail, $scope.data.Question);
+            
+        $ionicPopup.alert({
+            title: 'Thank you!',
+            template: 'Your response has been recorded.'
+        });
+        
+        $scope.data.Qemail = ''
+        $scope.data.Question = ''
+            
+        $state.go('selectLanguage')
+    } 
+
 }])
  
