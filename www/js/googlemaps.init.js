@@ -7,6 +7,31 @@ angular.module('googlemaps.init', ['uiGmapgoogle-maps'])
     });
 }])
 
+.service('DistanceMartix', ['uiGmapGoogleMapApi', "$q", function(uiGmapGoogleMapApi, $q){
+    
+    var ret = {
+        getDistance: function(obj){
+            var deferred = $q.defer();
+            
+            uiGmapGoogleMapApi.then(function(maps){
+                var service = new maps.DistanceMatrixService();
+                service.getDistanceMatrix({
+                    origins: [obj.origins],
+                    destinations: [obj.destinations],
+                    travelMode: 'WALKING',
+                }, function(response, status){
+                    deferred.resolve(response.rows[0].elements[0].distance)
+                });
+            })
+            
+            return(deferred.promise)
+        }
+    }
+    
+    return ret;
+    
+}])
+
 .directive('creatorMapComponent', ['uiGmapGoogleMapApi', '$timeout',
 
     /*

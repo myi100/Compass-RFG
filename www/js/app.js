@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.directives','app.services','firebase','firebaseConfig','utilities','ionic.cloud','ionic.cloud.init','uiGmapgoogle-maps','googlemaps.init','ionic.native',])
+angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.directives','app.services','firebase','firebaseConfig','utilities','ionic.cloud','ionic.cloud.init','uiGmapgoogle-maps','googlemaps.init','ionic.native','angular-encryption','mcwebb.twilio',])
 
 .config(function($ionicConfigProvider, $sceDelegateProvider){
 

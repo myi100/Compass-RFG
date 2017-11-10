@@ -3,7 +3,7 @@ angular.module('ionic.cloud.init', ['ionic.cloud'])
 .config(function($ionicCloudProvider) {
   $ionicCloudProvider.init({
     "core": {
-      "app_id": "c02d9e41"
+      "app_id": "42e38bb5"
     }
   });
 })

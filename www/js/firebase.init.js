@@ -37,7 +37,6 @@ angular.module('firebaseConfig', ['firebase'])
     messagingSenderId: "804739614254"
   };
   firebase.initializeApp(config);
-  console.log(firebase.database())
 })
 
 
@@ -102,11 +101,10 @@ angular.module('firebaseConfig', ['firebase'])
     var ref = firebase.database().ref().child("updates");
     var items = $firebaseArray(ref);
     var updates = {
-        addItem: function(email, city, share){
+        addItem: function(email, city){
             items.$add({
                 email: email,
                 city: city,
-                share: share,
                 tmsp: Date.now()
             })
         }
@@ -120,17 +118,16 @@ angular.module('firebaseConfig', ['firebase'])
     var users = {
         'share': ref,
         addItem: function(obj){
-            // , phone, share, city){
             items.$add({
-                phone: obj.phone,
-                share: obj.share,
+                phoneHash: obj.phoneHash,
                 city: obj.city,
+                country_code: obj.country_code,
                 tmsp: Date.now()
             })
         },
-        filter: function(phone){
+        filter: function(phoneHash){
             var defered = $q.defer();
-            ref.orderByChild('phone').equalTo(phone).once("value").then(function(data) {
+            ref.orderByChild('phoneHash').equalTo(phoneHash).once("value").then(function(data) {
                 defered.resolve(data.val());
             })
             return defered.promise;

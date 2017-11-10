@@ -4,6 +4,10 @@ $energized: #51BCB1;
 $royal: #345167;
 $ionicons-font-path: "../lib/ionic/fonts" !default;
 @import "../www/lib/ionic/scss";
+.popup {
+	border-radius: 5px !important;
+}
+
 .buttonBorder {
 	border: 2px solid #4CAF50;
 	/* Green */}
@@ -54,3 +58,7 @@ ui-gmap-google-map {
 		
 	}
 }
+ion-view,.pane,.view {
+	background-color: #F6F6F6;
+}
+

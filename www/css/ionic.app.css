@@ -9799,6 +9799,9 @@ a.button {
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
 
+.popup {
+  border-radius: 5px !important; }
+
 .buttonBorder {
   border: 2px solid #4CAF50;
   /* Green */ }
@@ -9838,3 +9841,6 @@ ui-gmap-google-map {
     height: 100%; }
     ui-gmap-google-map .angular-google-map .angular-google-map-container {
       height: 100%; }
+
+ion-view, .pane, .view {
+  background-color: #F6F6F6; }

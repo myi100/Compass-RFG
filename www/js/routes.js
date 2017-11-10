@@ -9,85 +9,7 @@ angular.module('app.routes', [])
   $stateProvider
     
 
-      .state('tabsController.compass', {
-    url: '/compass',
-    views: {
-      'tab1': {
-        templateUrl: 'templates/compass.html',
-        controller: 'compassCtrl'
-      }
-    }
-  })
-
-  .state('directory', {
-    url: '/directory',
-	params: {
-		category: ""		
-},
-    templateUrl: 'templates/directory.html',
-    controller: 'directoryCtrl'
-  })
-
-  .state('tabsController.information', {
-    url: '/information',
-	params: {
-		item: ""		
-},
-    views: {
-      'tab3': {
-        templateUrl: 'templates/information.html',
-        controller: 'informationCtrl'
-      }
-    }
-  })
-
-  .state('tabsController.map', {
-    url: '/map',
-	params: {
-		item: ""		
-},
-    views: {
-      'tab3': {
-        templateUrl: 'templates/map.html',
-        controller: 'mapCtrl'
-      }
-    }
-  })
-
-  .state('tabsController.todos', {
-    url: '/todos',
-    views: {
-      'tab3': {
-        templateUrl: 'templates/todos.html',
-        controller: 'todosCtrl'
-      }
-    }
-  })
-
-  .state('tabsController.completedTodos', {
-    url: '/completed',
-    views: {
-      'tab3': {
-        templateUrl: 'templates/completedTodos.html',
-        controller: 'completedTodosCtrl'
-      }
-    }
-  })
-
-  .state('tabsController.todoItem', {
-    url: '/todoitem',
-	params: {
-		item: ""		
-},
-    views: {
-      'tab3': {
-        templateUrl: 'templates/todoItem.html',
-        controller: 'todoItemCtrl'
-      }
-    }
-  })
-
-  .state('tabsController', {
+      .state('tabsController', {
     url: '/page1',
     templateUrl: 'templates/tabsController.html',
     abstract:true
@@ -99,130 +21,76 @@ angular.module('app.routes', [])
     controller: 'selectLanguageCtrl'
   })
 
-  .state('needInternetConnection', {
-    url: '/noConnetion',
-    templateUrl: 'templates/needInternetConnection.html',
-    controller: 'needInternetConnectionCtrl'
-  })
-
   .state('welcome', {
     url: '/welcome',
     templateUrl: 'templates/welcome.html',
     controller: 'welcomeCtrl'
   })
 
+  .state('haveAQuestion', {
+    url: '/page27',
+    templateUrl: 'templates/haveAQuestion.html',
+    controller: 'haveAQuestionCtrl'
+  })
+
   .state('register', {
-    url: '/register',
+    url: '/page7',
 	params: {
 		city: "",
-		phone: "",
-		share: ""		
+		phone: ""		
 },
     templateUrl: 'templates/register.html',
     controller: 'registerCtrl'
   })
 
   .state('login', {
-    url: '/login',
-	params: {
-		city: "",
-		phone: "",
-		share: ""		
-},
+    url: '/page9',
     templateUrl: 'templates/login.html',
     controller: 'loginCtrl'
   })
 
-  .state('accessCode', {
-    url: '/access',
+  .state('tabsController.compass', {
+    url: '/page8',
+    views: {
+      'tab1': {
+        templateUrl: 'templates/compass.html',
+        controller: 'compassCtrl'
+      }
+    }
+  })
+
+  .state('tabsController.directory', {
+    url: '/page14',
 	params: {
-		city: "",
-		phone: "",
-		share: "",
-		msg: ""		
+		category: ""		
 },
-    templateUrl: 'templates/accessCode.html',
-    controller: 'accessCodeCtrl'
+    views: {
+      'tab1': {
+        templateUrl: 'templates/directory.html',
+        controller: 'directoryCtrl'
+      }
+    }
   })
 
   .state('updates', {
-    url: '/updates',
+    url: '/page10',
 	params: {
 		city: "",
-		phone: "",
-		share: "",
+		phoneHash: "",
 		msg: ""		
 },
     templateUrl: 'templates/updates.html',
     controller: 'updatesCtrl'
   })
 
-  .state('iJustArrived', {
-    url: '/iJustArrived',
-    templateUrl: 'templates/iJustArrived.html',
-    controller: 'iJustArrivedCtrl'
-  })
-
-  .state('scheduleMedicalExam', {
-    url: '/scheduleMedicalExam',
-    templateUrl: 'templates/scheduleMedicalExam.html',
-    controller: 'scheduleMedicalExamCtrl'
-  })
-
-  .state('tabsController.findHousing', {
-    url: '/findHousing',
+  .state('tabsController.iJustArrived', {
+    url: '/page11',
     views: {
       'tab1': {
-        templateUrl: 'templates/findHousing.html',
-        controller: 'findHousingCtrl'
+        templateUrl: 'templates/iJustArrived.html',
+        controller: 'iJustArrivedCtrl'
       }
     }
-  })
-
-  .state('findBuyEssentials', {
-    url: '/findEssentials',
-    templateUrl: 'templates/findBuyEssentials.html',
-    controller: 'findBuyEssentialsCtrl'
-  })
-
-  .state('studyFrenchOrEnglish', {
-    url: '/study',
-    templateUrl: 'templates/studyFrenchOrEnglish.html',
-    controller: 'studyFrenchOrEnglishCtrl'
-  })
-
-  .state('checkApplication', {
-    url: '/check',
-    templateUrl: 'templates/checkApplication.html',
-    controller: 'checkApplicationCtrl'
-  })
-
-  .state('shareCompass', {
-    url: '/share',
-    templateUrl: 'templates/shareCompass.html',
-    controller: 'shareCompassCtrl'
-  })
-
-  .state('geolocation', {
-    url: '/page24',
-    templateUrl: 'templates/geolocation.html',
-    controller: 'geolocationCtrl'
-  })
-
-  .state('tabsController.haveAQuestion', {
-    url: '/page26',
-    views: {
-      'tab1': {
-        templateUrl: 'templates/haveAQuestion.html',
-        controller: 'haveAQuestionCtrl'
-      }
-    }
-  })
-
-  .state('sendUsAQuestion', {
-    url: '/page28',
-    templateUrl: 'templates/sendUsAQuestion.html',
-    controller: 'sendUsAQuestionCtrl'
   })
 
 $urlRouterProvider.otherwise('/language')

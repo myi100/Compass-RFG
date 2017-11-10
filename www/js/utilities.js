@@ -2,20 +2,43 @@
 
 angular.module('utilities', [])
 
-.service('Utilities', ['$http', function($http){
+.service('FormValidation', ['$http', function($http){
 
     var ret = {
         validateEmail: function(email){
-            var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
             
-        return re.test(email);
-        // console.log(email)
+            var emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+            
+            if (!emailRegex.test(email)){
+                return("Please enter valid email address.")
+            }
+            
+            
+            
         },
+        
+        validatePassword: function(field){
+            if(field.length < 5){
+                return("Password must be atleast 6 characters.")
+            }
+            
+            
+        },
+        
+        validateQuestion: function(field){
+            if(field.length < 10){
+                return("Please enter valid question.")
+            }
+            
+        },
+        
     }
 
     return ret;
 
 }]);
+
+
 /* Ex.: 
 
 .service('BlankService', [function(){
