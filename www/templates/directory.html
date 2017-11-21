@@ -1,10 +1,9 @@
 <ion-view title="Directory" id="page14">
-  <ion-nav-buttons side="right" class="has-header">
-    <button class="button button-icon icon ion-location" ng-click="FilterByLocation()"></button>
-  </ion-nav-buttons>
   <ion-content padding="true" class="manual-remove-top-padding has-header">
-    <ion-list id="directory-list6" class="manual-list-fullwidth">
-      <ion-item id="directory-list-item74" ng-repeat="item in directory">{{item.name}}</ion-item>
+    <ion-list id="directory-list6" class="manual-list-fullwidth wrapping-list">
+      <ion-item id="directory-list-item74" ui-sref="tabsController.information({&quot;item&quot;:&quot;&quot;+item.hashed+&quot;&quot;})" ng-repeat="item in directory" class="addPaddingBottom">{{item.name}}
+        <span class="item-note">({{item.distanceText}})</span>
+      </ion-item>
     </ion-list>
   </ion-content>
 </ion-view>

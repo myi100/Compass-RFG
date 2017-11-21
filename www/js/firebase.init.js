@@ -68,17 +68,45 @@ angular.module('firebaseConfig', ['firebase'])
     var todos = {
         items: items,
         addTodos: function(user, title, name, info, datetime, prereq, gtd){
-            items.$add({
-                'user': user,
-                'title': title,
-                'name': name,
-                'info': info,
-                'datetime': datetime,
-                'prereq': prereq,
-                'gtd': gtd,
-                'finished': false,
-                'tmsp': Date.now()
-            });
+
+            ref.orderByChild('title').equalTo(title).once("value").then(function(data) {
+                if(data.val() === null){
+                    items.$add({
+                        'user': user,
+                        'title': title,
+                        'name': name,
+                        'info': info,
+                        'datetime': datetime,
+                        'prereq': prereq,
+                        'gtd': gtd,
+                        'finished': false,
+                        'tmsp': Date.now()
+                    });
+                } else{
+                    // console.log(data.val())
+                    var itemKeys = Object.keys(data.val())
+
+                    for(i = 0; i < itemKeys.length; i++){
+                        if(data.val()[itemKeys[i]].user === user){
+                            alert("Todo: " + title + " [This is a duplicate to do item]")
+                            return
+                        } 
+                    }
+
+                    items.$add({
+                        'user': user,
+                        'title': title,
+                        'name': name,
+                        'info': info,
+                        'datetime': datetime,
+                        'prereq': prereq,
+                        'gtd': gtd,
+                        'finished': false,
+                        'tmsp': Date.now()
+                    });
+                }
+            })
+
         },
         setFinished: function(item, newV){
             item.finished = newV;
@@ -141,9 +169,8 @@ angular.module('firebaseConfig', ['firebase'])
     var ref = firebase.database().ref().child("questions");
     var items = $firebaseArray(ref);
     var questions = {
-        addItem: function(userId, email, question){
+        addItem: function(email, question){
             items.$add({
-                userId: userId,
                 email: email,
                 question: question,
                 tmsp: Date.now()

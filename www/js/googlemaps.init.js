@@ -17,10 +17,10 @@ angular.module('googlemaps.init', ['uiGmapgoogle-maps'])
                 var service = new maps.DistanceMatrixService();
                 service.getDistanceMatrix({
                     origins: [obj.origins],
-                    destinations: [obj.destinations],
+                    destinations: obj.destinations,
                     travelMode: 'WALKING',
                 }, function(response, status){
-                    deferred.resolve(response.rows[0].elements[0].distance)
+                    deferred.resolve(response)
                 });
             })
             
