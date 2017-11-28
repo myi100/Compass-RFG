@@ -1,0 +1,28 @@
+<ion-view title="Information" id="page15">
+  <ion-content padding="true" class="has-header">
+    <div class="spacer" style="height: 50px;"></div>
+    <ion-list id="information-list10" class="manual-list-fullwidth wrapping-list">
+      <ion-item id="information-list-item78">{{item.name}}</ion-item>
+    </ion-list>
+    <div class="spacer" style="height: 30px;"></div>
+    <ion-list id="information-list11" class="manual-list-fullwidth wrapping-list">
+      <ion-item class="item-icon-left item-icon-right" id="information-list-item79" ui-sref="tabsController.map({&quot;item&quot;:&quot;&quot;+item.hashed+&quot;&quot;})">
+        <i class="icon ion-map"></i>{{item.address}}
+        <i class="icon ion-android-arrow-dropright icon-accessory"></i>
+      </ion-item>
+      <ion-item class="item-icon-right" id="information-list-item80" ng-click="call({{item.phone}})">{{item.phone}}
+        <i class="icon ion-ios-telephone"></i>
+      </ion-item>
+    </ion-list>
+    <div class="spacer" style="height: 30px;"></div>
+    <ion-list id="information-list16" class="manual-list-fullwidth">
+      <div class="item item-body" id="information-list-item-container2">
+        <div id="information-markdown14" class="show-list-numbers-and-dots">
+          <blockquote>
+            <p style="margin-top:0px;color:#000000;">{{item.info}}</p>
+          </blockquote>
+        </div>
+      </div>
+    </ion-list>
+  </ion-content>
+</ion-view>
