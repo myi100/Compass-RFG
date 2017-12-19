@@ -97,8 +97,8 @@ function ($scope, $stateParams, $ionicSlideBoxDelegate, $ionicPopup) {
 function ($scope, $stateParams, $state, $ionicAuth, $ionicUser, $ionicPopup, FormValidation, Questions) {
 
     $scope.data = {
-        Qemail: 'test@gmail.com',
-        Question: 'I need help finding a job?',
+        Qemail: '',
+        Question: '',
     }
     
     
@@ -149,8 +149,8 @@ function ($scope, $stateParams, $state, $ionicAuth, $ionicUser, $ionicPopup, For
 
 
     $scope.data = {
-        Qemail: 'test@gmail.com',
-        Question: 'I need help finding a job?',
+        Qemail: '',
+        Question: '',
     }
     
     
@@ -190,8 +190,8 @@ function ($scope, $stateParams, $state, $ionicUser, $ionicAuth, $rootScope, $ion
 
     $scope.data = {
         city: 'Montréal, QC',
-        phone: '4258024392',
-        password: 'abcdefghijklmnopqrstuvwxyz',
+        phone: '',
+        password: '',
         phoneHash: '',
         country_code: ''
     }
@@ -314,8 +314,8 @@ function ($scope, $stateParams, $state, $ionicUser, $ionicAuth, $rootScope, $ion
 function ($scope, $stateParams, $state, $ionicUser, $ionicAuth, $rootScope, $ionicLoading, $ionicHistory, Users, FormValidation, sha256) {
 
     $scope.data = {
-        phone: '4258024392',
-        password: 'abcdefghijklmnopqrstuvwxyz',
+        phone: '',
+        password: '',
         phoneHash: ''
     }
     
