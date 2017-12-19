@@ -408,6 +408,32 @@ function ($scope, $stateParams, $ionicAuth, $ionicUser) {
  
    
 }])
+
+.controller('connectionStateCtrl',['$scope','$stateParams','$state', 
+function ($scope, $stateParams, $state) {
+       $scope.offline = false;
+    
+        $scope.$on('$cordovaNetwork:offline', function(event, networkState){
+           $scope.offline = true;
+           $scope.$digest();
+         });
+         
+          window.addEventListener("offline", function(e) {
+            $scope.offline = true;
+            $scope.$digest();
+          }, false);  
+
+          $scope.$on('$cordovaNetwork:online', function(event, networkState){
+            $scope.offline = false;
+            $scope.$digest();
+          });
+         
+          window.addEventListener("online", function(e) {
+            $scope.offline = false;
+            $scope.$digest();
+          }, false);  
+}
+])
    
 .controller('directoryCtrl', ['$scope', '$stateParams', '$cordovaGeolocation', '$ionicLoading', 'Directory', 'DistanceMartix', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
