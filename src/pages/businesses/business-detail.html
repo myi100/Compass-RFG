@@ -1,0 +1,154 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>{{business.name}}</ion-title>
+
+		<ion-buttons end>
+			<button ion-button icon-only (click)="service.toggleFavorites(business.$key)">
+				<ion-icon name="star-outline" *ngIf="!service.isInFavorites(business.$key)"></ion-icon>
+				<ion-icon name="star" *ngIf="service.isInFavorites(business.$key)"></ion-icon>
+			</button>
+		</ion-buttons>
+	</ion-navbar>
+</ion-header>
+
+<ion-content>
+	<ion-slides pager style="height: 250px;">
+		<ion-slide *ngFor="let picture of business.pictures">
+			<img [src]="picture" alt="business.name">
+			<div class="business-info">
+				<h1>{{business.name}}</h1>
+				<!-- <rating [ngModel]="business.rating?.value" readOnly="true" nullable="true"></rating> -->
+				<p><strong>Category: </strong>{{business.categoryName}}</p>
+			</div>
+		</ion-slide>
+	</ion-slides>
+
+	<ion-list padding-top text-wrap class="actions">
+		<!-- <ion-item> -->
+			<!-- <p>{{business.description}}</p> -->
+		<!-- </ion-item> -->
+<!-- 		<button ion-item (click)="goToContactUs(business)">
+			<ion-icon name="time" item-start></ion-icon>
+			We are {{ isOpen ? 'open' : 'closed' }}
+		</button>
+ -->
+
+<!-- 		<button ion-item (click)="getDirections(business.officeLocation)">
+			<ion-icon name="navigate" item-start></ion-icon>
+			You are {{business.distance | distance}} away. <br>Get directions
+		</button> -->
+
+		
+
+<!-- 		<button ion-item (click)="service.toggleFavorites(business.$key)" *ngIf="!service.isInFavorites(business.$key)" detail-none>
+			<ion-icon name="star-outline" item-start></ion-icon>
+			Add to favorites
+		</button>
+
+		<button ion-item (click)="service.toggleFavorites(business.$key)" *ngIf="service.isInFavorites(business.$key)" detail-none>
+			<ion-icon name="star" item-start></ion-icon>
+			Remove from favorites
+		</button> -->
+		<button ion-item (click)="openWithSystemBrowser(business.wordpress)">
+			<ion-icon name="ios-open-outline" item-start></ion-icon>
+			Website
+		</button>
+		<button ion-item (click)="goToReviews(business)">
+			<ion-icon name="chatbubbles" item-start></ion-icon>
+			Reviews / Add review
+		</button>
+	</ion-list>
+
+	<ion-row class="tiles">
+		<ion-col>
+			<ion-card class="tile" (click)="goToContactUs(business)">
+				<ion-card-content>
+					<ion-item>
+						<h1>
+							<ion-icon name="time"></ion-icon>
+						</h1>
+						<h2>We are {{ isOpen ? 'open' : 'closed' }}</h2>
+					</ion-item>
+				</ion-card-content>
+			</ion-card>
+
+			<!-- <ion-card class="tile" (click)="navigateToServices()">
+				<ion-card-content>
+					<ion-item>
+						<h1>
+							<ion-icon name="md-compass"></ion-icon>
+						</h1>
+						<h2>Services</h2>
+					</ion-item>
+				</ion-card-content>
+			</ion-card> -->
+
+			<ion-card class="tile" (click)="service.toggleFavorites(business.$key)">
+				<ion-card-content>
+					<ion-item *ngIf="!service.isInFavorites(business.$key)" detail-none>
+						<h1>
+							<ion-icon name="star-outline"></ion-icon>
+						</h1>
+						<h2>Add to favorites</h2>
+					</ion-item>
+
+					<ion-item ion-item *ngIf="service.isInFavorites(business.$key)" detail-none>
+						<h1>
+							<ion-icon name="star"></ion-icon>
+						</h1>
+						<h2>Remove from favorites</h2>
+					</ion-item>
+				</ion-card-content>
+			</ion-card>
+		</ion-col>
+				<ion-col>
+			<ion-card class="tile" (click)="callIT(business.phoneNumber)">
+				 <!-- <a href="tel:+1-1800-555-5555" class="button button-positive">Call me</a> -->
+				<ion-card-content>
+					<ion-item>
+						<h1>
+							<ion-icon name="ios-call"></ion-icon>
+						</h1>
+						<h2>Call</h2>
+					</ion-item>
+				</ion-card-content>
+			</ion-card>
+
+
+			<ion-card class="tile" (click)="getDirections(business.officeLocation)">
+				<ion-card-content>
+					<ion-item>
+						<h1>
+							<ion-icon name="ios-navigate"></ion-icon>
+						</h1>
+						<h2>Get directions ({{business.distance | distance}})</h2> 
+					</ion-item>
+				</ion-card-content>
+			</ion-card>
+		</ion-col>
+	</ion-row>
+
+	<!-- <ion-row class="tiles" *ngFor="let tilePair of tiles">
+		<ion-col *ngFor="let tile of tilePair">
+			<ion-card class="tile" (click)="navigateTo(tile)">
+				<ion-card-content>
+					<ion-item>
+						<h1>
+							<ion-icon [name]="tile.icon"></ion-icon>
+						</h1>
+						<h2>{{tile.title}}</h2>
+					</ion-item>
+				</ion-card-content>
+			</ion-card>
+		</ion-col>
+	</ion-row> -->
+
+	<ion-list>
+
+<!-- 		<button ion-item (click)="navigateToDrupal()">
+			<ion-icon name="help-buoy" item-start></ion-icon>
+			Drupal
+		</button> -->
+
+	</ion-list>
+</ion-content>

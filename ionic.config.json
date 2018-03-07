@@ -1,19 +1,8 @@
 {
-  "name": "compass",
-  "app_id": "42e38bb5",
-  "type": "ionic1",
+  "name": "mtl-compass",
+  "app_id": "26f862ff",
+  "type": "ionic-angular",
   "integrations": {
-    "gulp": {},
     "cordova": {}
-  },
-  "watchPatterns": [
-    "scss/**/*",
-    "www/**/*",
-    "!www/lib/**/*",
-    "!www/**/*.map"
-  ],
-  "gulpStartupTasks": [
-    "sass",
-    "watch"
-  ]
+  }
 }
